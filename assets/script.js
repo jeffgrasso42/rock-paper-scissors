@@ -34,11 +34,7 @@ function rockPaperSciccors() {
     computerWins++;
     gamesPlayed++;
   } else if (playerMove === "R" && computerMove === "R") {
-<<<<<<< HEAD
     alert('You played ' + playerMove + ', the computer played ' + computerMove + ', It\'s a tie!');
-=======
-    alert('You played ' + playerMove + ', the computer played ' + computerMove + ' It\'s a tie!');
->>>>>>> 6a9ef479f505f3b9d7f2dd71a7a46bf0e5dbb86f
     ties++;
     gamesPlayed++;
   } else if (playerMove === "P" && computerMove === "S") {
@@ -50,11 +46,7 @@ function rockPaperSciccors() {
     playerWins++;
     gamesPlayed++;
   } else if (playerMove === "P" && computerMove === "P") {
-<<<<<<< HEAD
     alert('You played ' + playerMove + ', the computer played ' + computerMove + ', It\'s a tie!');
-=======
-    alert('You played ' + playerMove + ', the computer played ' + computerMove + ' It\'s a tie!');
->>>>>>> 6a9ef479f505f3b9d7f2dd71a7a46bf0e5dbb86f
     ties++;
     gamesPlayed++;
   } else if (playerMove === "S" && computerMove === "P") {
@@ -66,11 +58,7 @@ function rockPaperSciccors() {
     computerWins++;
     gamesPlayed++;
   } else {
-<<<<<<< HEAD
     alert('You played ' + playerMove + ', the computer played ' + computerMove + ', It\'s a tie!');
-=======
-    alert('You played ' + playerMove + ', the computer played ' + computerMove + ' It\'s a tie!');
->>>>>>> 6a9ef479f505f3b9d7f2dd71a7a46bf0e5dbb86f
     ties++;
     gamesPlayed++;
   }
