@@ -9,12 +9,21 @@ var gamesPlayed = 0;
 // User greeting
 alert("Welcome to Rock, Paper, Sciccors!");
 
+// Main game function
+function rockPaperSciccors() {
+  // Stores return value from getPlayerMove()
+  var playerMove = getPlayerMove();
+  // Stores return value from getComputerMove()
+  var computerMove = getComputerMove();
+  // Compares player move and computer move and decides winner
+  shoot(playerMove, computerMove);
+}
+
 // Function to get and validate the player's move
 function getPlayerMove() {
   var move = "";
   while (move != "R" && move != "P" && move != "S" ) {
-    move = prompt("Enter 'R' for rock, 'P' for paper or 'S' for Scissors:");
-    move = move.toUpperCase();
+    move = prompt("Enter 'R' for rock, 'P' for paper or 'S' for Scissors:").toUpperCase();
     if (move != "R" && move != "P" && move != "S") {
       alert('Invalid Input\nTry again');
     }
@@ -22,8 +31,11 @@ function getPlayerMove() {
   return move;
 }
 
+// Function to generate computer move
 function getComputerMove() {
+  //get a random index based on the number of options in the moves array
   var moveIndex = Math.floor(Math.random() * moves.length);
+  //get the item at that index
   var computerMove = moves[moveIndex];
   return computerMove;
 }
@@ -36,34 +48,46 @@ function shoot(p, c) {
     (p === "P" && c === "R") ||
     (p === "S" && c === "P")
   ) {
-    alert('You played ' + p + ', the computer played ' + c + ', You win!');
-    playerWins++;
-    gamesPlayed++;
+    win(p, c);
+    
   //computer wins
   } else if (
     (p === "R" && c === "P") || 
     (p === "P" && c === "S") || 
     (p === "S" && c === "R")
   ) {
-    alert('You played ' + p + ', the computer played ' + c + ', Computer wins!');
-    computerWins++;
-    gamesPlayed++;
+    lose(p, c);
   // tie
   } else {
-    alert('You played ' + p + ', the computer played ' + c + ', It\'s a tie!');
-    ties++;
-    gamesPlayed++;
+    tie(p, c);
   }
 }
 
-// Main game function
-function rockPaperSciccors() {
-  // Stores return value from getPlayerMove()
-  var playerMove = getPlayerMove();
-  // Stores return value from getComputerMove()
-  var computerMove = getComputerMove();
-  // Compares player move and computer move and decides winner
-  shoot(playerMove, computerMove);
+// called if player won
+function win(p, c) {
+  //shows moves
+  alert('You played ' + p + ', the computer played ' + c + ', You win!');
+  // increments playerWins and gamesPlayed variables
+  playerWins++;
+  gamesPlayed++;
+}
+
+// called if computer won 
+function lose(p, c) {
+  //shows moves
+  alert('You played ' + p + ', the computer played ' + c + ', Computer wins!');
+  // increments computerWins and gamesPlayed
+  computerWins++;
+  gamesPlayed++;
+}
+
+// called if game was a tie 
+function tie(p, c) {
+  // shows moves
+  alert('You played ' + p + ', the computer played ' + c + ', It\'s a tie!');
+  // increments ties and gamesPlayed
+  ties++;
+  gamesPlayed++;
 }
 
 // while loop calls the game function as long as the user chooses to continue
