@@ -15,6 +15,8 @@ function rockPaperSciccors() {
   var playerMove = getPlayerMove();
   // Stores return value from getComputerMove()
   var computerMove = getComputerMove();
+  //displays moves
+  alert('You played ' + playerMove + ', the computer played ' + computerMove)
   // Compares player move and computer move and decides winner
   shoot(playerMove, computerMove);
 }
@@ -48,7 +50,7 @@ function shoot(p, c) {
     (p === "P" && c === "R") ||
     (p === "S" && c === "P")
   ) {
-    win(p, c);
+    win();
     
   //computer wins
   } else if (
@@ -56,35 +58,32 @@ function shoot(p, c) {
     (p === "P" && c === "S") || 
     (p === "S" && c === "R")
   ) {
-    lose(p, c);
+    lose();
   // tie
   } else {
-    tie(p, c);
+    tie();
   }
 }
 
 // called if player won
-function win(p, c) {
-  //shows moves
-  alert('You played ' + p + ', the computer played ' + c + ', You win!');
+function win() {
+  alert('You win!');
   // increments playerWins and gamesPlayed variables
   playerWins++;
   gamesPlayed++;
 }
 
 // called if computer won 
-function lose(p, c) {
-  //shows moves
-  alert('You played ' + p + ', the computer played ' + c + ', Computer wins!');
+function lose() {
+  alert('Computer wins!');
   // increments computerWins and gamesPlayed
   computerWins++;
   gamesPlayed++;
 }
 
 // called if game was a tie 
-function tie(p, c) {
-  // shows moves
-  alert('You played ' + p + ', the computer played ' + c + ', It\'s a tie!');
+function tie() {
+  alert('It\'s a tie!');
   // increments ties and gamesPlayed
   ties++;
   gamesPlayed++;
